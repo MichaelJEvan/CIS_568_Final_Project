@@ -1,4 +1,4 @@
-# NTSB Aviation Accidents 
+# Interactive Visualization of NTSB Aviation Accident Data
 #
 ### CIS-568 Data Visualization: Final Project
 ### Graduate Computer Science Department
