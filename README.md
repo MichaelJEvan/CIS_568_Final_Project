@@ -1,5 +1,4 @@
 ## Interactive Visualization of NTSB Aviation Accident Data 
-#
 ##### Data timeline: 1962 - 2025
 
 ---
