@@ -2,7 +2,7 @@
 ##### Data timeline: 1962 - 2025
 
 ---
-https://michaeljevan.github.io/CIS_568_Final_Project/
+GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 
 ---
 
