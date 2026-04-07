@@ -12,4 +12,5 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - #### University of Massachusetts Dartmouth
 - #### Spring 2026
 #
-##### Note: best viewed on widescreen monitors
+##### *Post for Academic Review*
+##### Note: best viewed on widescreen monitor
