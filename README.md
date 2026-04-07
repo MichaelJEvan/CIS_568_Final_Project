@@ -1,13 +1,15 @@
-# Interactive Visualization of NTSB Aviation Accident Data
+## Interactive Visualization of NTSB Aviation Accident Data 
+##### Data timeline: 1962 - 2025
+
+---
+GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
+
+---
+
+- #### Michael J Evan
+- #### CIS-568 Data Visualization: Final Project
+- #### Graduate Computer Science Department
+- #### University of Massachusetts Dartmouth
+- #### Spring 2026
 #
-### CIS-568 Data Visualization: Final Project
-### Graduate Computer Science Department
-### University of Massachusetts Dartmouth
-
-
-#### click link to launch project:
----
-https://michaeljevan.github.io/CIS_568_Final_Project/
-
----
-##### note: best viewed on a widescreen monitor 
+##### Note: best viewed on widescreen monitors
