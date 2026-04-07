@@ -4,9 +4,10 @@
 
 ## Interactive Visualization of NTSB Aviation Accident Data
 
-Michael Evan - Graduate Computer Science Department
-University of Massachusetts Dartmouth
-Spring 2026
+- Michael Evan
+- Graduate Computer Science Department
+- University of Massachusetts Dartmouth
+- Spring 2026
 
 ---
 
