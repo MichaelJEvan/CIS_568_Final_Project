@@ -295,6 +295,10 @@
   .chip-grid .chip {
     text-align: center;
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   /* -- CHIP FILTERS -- */
@@ -1098,7 +1102,7 @@
       <div class="filter-body">
         <div class="chip-grid">
           <div class="chip active" data-filter="purpose" data-val="PERS">PERSONAL</div>
-          <div class="chip active" data-filter="purpose" data-val="INST">INSTRUCTIONAL</div>
+          <div class="chip active" data-filter="purpose" data-val="INST">INSTRUCT</div>
           <div class="chip active" data-filter="purpose" data-val="BUS">BUSINESS</div>
           <div class="chip active" data-filter="purpose" data-val="FERY">FERRY</div>
           <div class="chip active" data-filter="purpose" data-val="AAPL">AERIAL APP</div>
