@@ -13,4 +13,4 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - #### Spring 2026
 #
 ##### *Post for Academic Review*
-##### Note: best viewed on widescreen monitors
+##### Note: best viewed on widescreen monitor
