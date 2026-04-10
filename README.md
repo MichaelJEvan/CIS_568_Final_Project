@@ -51,7 +51,7 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - **Documentation drawer** — in-app project documentation
 - **Help & Info drawer** — usage tips and interface guide
 - Retro-futuristic cyan-on-dark interface styled with Orbitron and Share Tech Mono typefaces
-- Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider - no build step required
+- Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider — no build step required
 
 ---
 ##### **Post for Academic Review**
