@@ -1,6 +1,6 @@
 ---
 ## Interactive Visualization of NTSB Aviation Accident Data 
-##### Data timeline: 1962 - 2025
+##### Data timeline: 1962 – 2025
 ---
 GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 
