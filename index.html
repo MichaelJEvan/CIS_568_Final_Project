@@ -1832,10 +1832,11 @@ function toggleMultiAcft() {
   multiAcftActive = !multiAcftActive;
   const btn = document.getElementById('btn-multiacft');
   if (multiAcftActive) {
-    btn.style.borderColor = 'var(--accent)';
-    btn.style.color = 'var(--accent)';
-    btn.style.background = 'rgba(0,212,255,0.15)';
-    btn.style.boxShadow = '0 0 12px rgba(0,212,255,0.3)';
+    btn.style.borderColor = '#bf5fff';
+    btn.style.color = '#bf5fff';
+    btn.style.background = 'rgba(191,95,255,0.15)';
+    btn.style.boxShadow = '0 0 12px rgba(191,95,255,0.3)';
+    btn.style.fontWeight = 'bold';
     // turn on all other filters so nothing is missed
     document.querySelectorAll('.chip').forEach(c => c.classList.add('active'));
     document.querySelectorAll('.legend-item').forEach(li => li.classList.add('active'));
@@ -1845,6 +1846,7 @@ function toggleMultiAcft() {
     btn.style.color = '#8899bb';
     btn.style.background = 'rgba(0,212,255,0.03)';
     btn.style.boxShadow = 'none';
+    btn.style.fontWeight = '';
   }
   applyFilters();
 }
@@ -1859,6 +1861,7 @@ function resetFilters() {
   maBtn.style.color = '#8899bb';
   maBtn.style.background = 'rgba(0,212,255,0.03)';
   maBtn.style.boxShadow = 'none';
+  maBtn.style.fontWeight = '';
 
   filteredData = [...allData];
   updateStats(filteredData);
