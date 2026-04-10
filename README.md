@@ -54,6 +54,6 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider - no build step required
 
 ##### **Post for Academic Review**
-##### *Note: best viewed on widescreen monitor*
+##### *Note: best user interaction experienced on widescreen monitor*
 
 
