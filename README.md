@@ -53,7 +53,7 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - Retro-futuristic cyan-on-dark interface styled with Orbitron and Share Tech Mono typefaces
 - Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider - no build step required
 
-### **Post for Academic Review**
-### *Note: best viewed on widescreen monitor*
+##### **Post for Academic Review**
+##### *Note: best viewed on widescreen monitor*
 
 
