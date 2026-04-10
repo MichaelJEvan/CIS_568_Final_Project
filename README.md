@@ -33,6 +33,7 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
   - **Heatmap** — density-based heat layer
   - **All Dots** — every individual accident rendered as a colored point
 - Custom zoom controls and popups with accident details
+- Popups provide direct link via record number to NTSB Accident information (available 2009 and later)
 
 ### Filters
 - **Year range** — dual-handle slider (1962–2025) with numeric input fields and decade shortcut buttons (60s, 70s, 80s, 90s, 00s, 10s, 20s, ALL)
