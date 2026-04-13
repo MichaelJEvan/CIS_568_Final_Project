@@ -15,7 +15,7 @@ deck.gl was evaluated due to its GPU-accelerated rendering capabilities for larg
 - compatibility with static hosting
 - sufficient performance for the project's requirements
 
-This was a deliberate architectural decision, not a capability limitation.
+**This was a deliberate architectural decision, not a capability limitation.**
 
 ---
 
