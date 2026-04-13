@@ -44,7 +44,7 @@ Both libraries consume these identically—Leaflet via `L.tileLayer()`, deck.gl 
 
 The same applies to FAA sectional chart overlays. These are raster products served as XYZ tiles. Both libraries simply drape these images over the map canvas; neither interprets or renders them from vector data.
 
-A deck.gl + MapLibre implementation could render vector tiles client-side, enabling runtime style customization. This capability was not required and would have added complexity without benefit.
+A deck.gl + MapLibre implementation could render vector tiles client-side, enabling runtime style customization. This capability would have added complexity without benefit.
 
 ---
 
