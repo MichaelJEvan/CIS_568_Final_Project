@@ -38,7 +38,9 @@ https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png
 https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png
 ```
 
-Both libraries consume these identically—Leaflet via `L.tileLayer()`, deck.gl via `TileLayer`. The tiles are pre-rendered PNGs fetched from Carto's servers. **Neither library provides a rendering advantage for raster basemaps.**
+Both libraries consume these identically—Leaflet via `L.tileLayer()`, deck.gl via `TileLayer`. The tiles are pre-rendered PNGs fetched from Carto's servers. 
+
+- **Neither library provides a rendering advantage for raster basemaps.**
 
 The same applies to FAA sectional chart overlays. These are raster products served as XYZ tiles. Both libraries simply drape these images over the map canvas; neither interprets or renders them from vector data.
 
