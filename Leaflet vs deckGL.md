@@ -22,7 +22,7 @@ This was a deliberate architectural decision, not a capability limitation.
 - has an extensive plugin ecosystem including marker clustering
 - Canvas-accelerated rendering.
 
-**deck.gl**: Uber's WebGL-powered framework for large-scale data visualization.
+**deck.gl**: WebGL-powered framework for large-scale data visualization.
 - renders directly on the GPU, enabling smooth interaction with million-point datasets.
 - typically requires a JavaScript bundler
 - commonly paired with Mapbox GL or MapLibre for basemaps.
