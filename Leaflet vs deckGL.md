@@ -1,5 +1,9 @@
+---
+
 # Technology Selection Rationale
-## NTSB Aviation Accident Visualization - Leaflet over deck.gl
+- ### NTSB Aviation Accident Visualization - Leaflet over deck.gl
+
+---
 
 ## Summary
 
