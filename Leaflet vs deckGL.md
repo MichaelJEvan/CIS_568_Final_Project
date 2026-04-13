@@ -9,7 +9,7 @@
 
 This document presents the rationale for selecting Leaflet over deck.gl as the mapping library for an interactive visualization of approximately 170,000 NTSB aviation accident records (1962–present), deployed as a static site via GitHub Pages.
 
-deck.gl was evaluated due to its GPU-accelerated rendering capabilities for large-scale geospatial data. However, Leaflet was selected based on: 
+deck.gl was evaluated due to its GPU-accelerated rendering capabilities for large-scale geospatial data. However, there was no deck.gl requirement listed in the syllabus so Leaflet was selected based on: 
 - equivalent basemap rendering for raster tile services
 - broader client hardware accessibility
 - compatibility with static hosting
