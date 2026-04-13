@@ -39,7 +39,7 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - **Aircraft type**
 - **Purpose of flight**
 - **FAR Part** (regulatory category)
-- **Multi-Aircraft-Only** override toggle
+- **Multi-Aircraft-Only** override toggle for air-to-air or ground accidents
 - **Reset Filters** and **Reset Map** buttons
 
 ### Timeline Animation
