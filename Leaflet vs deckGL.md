@@ -1,18 +1,31 @@
-# Technology Selection Rationale: Leaflet over deck.gl for NTSB Aviation Accident Visualization
+# Technology Selection Rationale
+## NTSB Aviation Accident Visualization - Leaflet over deck.gl
 
-## Executive Summary
+## Summary
 
 This document presents the rationale for selecting Leaflet over deck.gl as the mapping library for an interactive visualization of approximately 170,000 NTSB aviation accident records (1962–present), deployed as a static site via GitHub Pages.
 
-deck.gl was evaluated due to its GPU-accelerated rendering capabilities for large-scale geospatial data. However, Leaflet was selected based on: (1) equivalent basemap rendering for raster tile services, (2) broader client hardware accessibility, (3) compatibility with static hosting, and (4) sufficient performance for the project's requirements. This was a deliberate architectural decision, not a capability limitation.
+deck.gl was evaluated due to its GPU-accelerated rendering capabilities for large-scale geospatial data. However, Leaflet was selected based on: 
+- equivalent basemap rendering for raster tile services
+- broader client hardware accessibility
+- compatibility with static hosting
+- sufficient performance for the project's requirements
+
+This was a deliberate architectural decision, not a capability limitation.
 
 ---
 
 ## Library Overview
 
-**Leaflet** is a lightweight JavaScript mapping library that renders via DOM and HTML5 Canvas (CPU-bound). It requires no build pipeline and has an extensive plugin ecosystem including marker clustering and Canvas-accelerated rendering.
+**Leaflet**: a lightweight JavaScript mapping library that renders via DOM and HTML5 Canvas (CPU-bound).
+- requires no build pipeline
+- has an extensive plugin ecosystem including marker clustering
+- Canvas-accelerated rendering.
 
-**deck.gl** is Uber's WebGL-powered framework for large-scale data visualization. It renders directly on the GPU, enabling smooth interaction with million-point datasets. It typically requires a JavaScript bundler and is commonly paired with Mapbox GL or MapLibre for basemaps.
+**deck.gl**: Uber's WebGL-powered framework for large-scale data visualization.
+- renders directly on the GPU, enabling smooth interaction with million-point datasets.
+- typically requires a JavaScript bundler
+- commonly paired with Mapbox GL or MapLibre for basemaps.
 
 ---
 
@@ -27,7 +40,7 @@ https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png
 
 Both libraries consume these identically—Leaflet via `L.tileLayer()`, deck.gl via `TileLayer`. The tiles are pre-rendered PNGs fetched from Carto's servers. **Neither library provides a rendering advantage for raster basemaps.**
 
-The same applies to FAA sectional and IFR enroute chart overlays. These are raster products served as XYZ tiles. Both libraries simply drape these images over the map canvas; neither interprets or renders them from vector data.
+The same applies to FAA sectional chart overlays. These are raster products served as XYZ tiles. Both libraries simply drape these images over the map canvas; neither interprets or renders them from vector data.
 
 A deck.gl + MapLibre implementation could render vector tiles client-side, enabling runtime style customization. This capability was not required and would have added complexity without benefit.
 
@@ -52,7 +65,9 @@ deck.gl's WebGL pipeline assumes GPU availability. The following configurations 
 | WebGL disabled | No impact | Complete failure |
 | Low memory | Gradual slowdown | WebGL context loss, crash |
 
-**Leaflet degrades gracefully**—users experience slower performance but retain functionality. **deck.gl fails catastrophically** when GPU resources are unavailable, rendering the visualization unusable or completely blank.
+---
+### **Leaflet degrades gracefully** - users experience slower performance but retain functionality. 
+### **deck.gl fails catastrophically** - when GPU resources are unavailable, rendering the visualization unusable or completely blank.
 
 The target audience includes aviation safety researchers, students, pilots, and general users who cannot be assumed to have high-performance hardware. Leaflet ensures functionality across the widest range of client configurations, consistent with accessible design principles.
 
