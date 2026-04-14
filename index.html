@@ -3,6 +3,7 @@
   Michael J Evan · CIS 568 Final Project
   NTSB Aviation Accident Visualization
   University of Massachusetts Dartmouth
+  GraduateComputer Science Department
   Spring 2026
   
   Description:
@@ -1397,6 +1398,154 @@
       <li>Python Crash Course 3rd Edition: Eric Matthes</li>
       <li>Pandas documentation: pandas.pydata.org</li>
       <li>Visualization Analysis and Design: Tamara Munzner</li>
+    </ul>
+
+    <!-- Technology Selection Rationale Addendum -->
+    <h2 style="margin-top:32px;">Addendum: Technology Selection Rationale — Leaflet over deck.gl</h2>
+
+    <h3>Summary</h3>
+    <p>This addendum presents the rationale for selecting Leaflet over deck.gl as the mapping library for an interactive visualization of approximately 170,000 NTSB aviation accident records (1962–present), deployed as a static site via GitHub Pages.</p>
+    <p>deck.gl was evaluated due to its GPU-accelerated rendering capabilities for large-scale geospatial data. However, there was no deck.gl requirement listed in the syllabus for the final project so Leaflet was selected based on: equivalent basemap rendering for raster tile services, broader client hardware accessibility, compatibility with static hosting, and sufficient performance for the project's requirements.</p>
+    <p><strong>This was a deliberate architectural decision, not a capability limitation.</strong></p>
+
+    <h3>Library Overview</h3>
+    <p><strong>Leaflet</strong>: a lightweight JavaScript mapping library that renders via DOM and HTML5 Canvas (CPU-bound). Requires no build pipeline, has an extensive plugin ecosystem including marker clustering, and supports Canvas-accelerated rendering.</p>
+    <p><strong>deck.gl</strong>: WebGL-powered framework for large-scale data visualization. Renders directly on the GPU, enabling smooth interaction with million-point datasets. Typically requires a JavaScript bundler and is commonly paired with Mapbox GL or MapLibre for basemaps.</p>
+
+    <h3>Basemap Rendering: Library-Agnostic</h3>
+    <p>The visualization uses Carto's Voyager and Dark Matter basemaps, accessed as raster tile endpoints. Both libraries consume these identically—Leaflet via <code>L.tileLayer()</code>, deck.gl via <code>TileLayer</code>. The tiles are pre-rendered PNGs fetched from Carto's servers. <strong>Neither library provides a rendering advantage for raster basemaps.</strong></p>
+    <p>The same applies to FAA sectional chart overlays. These are raster products served as XYZ tiles. Both libraries simply drape these images over the map canvas; neither interprets or renders them from vector data.</p>
+    <p>A deck.gl + MapLibre implementation could render vector tiles client-side, enabling runtime style customization. This capability would have added complexity without benefit.</p>
+
+    <h3>Client Hardware and Accessibility</h3>
+    <p>deck.gl's WebGL pipeline assumes GPU availability. The following configurations may experience degraded performance or failure: older integrated graphics (Intel HD, AMD APUs), mobile devices with limited GPU memory, Chromebooks with restricted WebGL contexts, virtual machines without GPU passthrough, and corporate environments with WebGL disabled by policy.</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:11px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);color:var(--accent);">
+          <th style="text-align:left;padding:6px;">Condition</th>
+          <th style="text-align:left;padding:6px;">Leaflet Behavior</th>
+          <th style="text-align:left;padding:6px;">deck.gl Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">Slow CPU</td>
+          <td style="padding:6px;">Sluggish panning, delayed rendering</td>
+          <td style="padding:6px;">Minimal impact</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">Weak/no GPU</td>
+          <td style="padding:6px;">No impact</td>
+          <td style="padding:6px;">Severe lag, crashes, blank canvas</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">WebGL disabled</td>
+          <td style="padding:6px;">No impact</td>
+          <td style="padding:6px;">Complete failure</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;">Low memory</td>
+          <td style="padding:6px;">Gradual slowdown</td>
+          <td style="padding:6px;">WebGL context loss, crash</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Leaflet degrades gracefully</strong> — users experience slower performance but retain functionality. <strong>deck.gl fails catastrophically</strong> — when GPU resources are unavailable, rendering the visualization unusable or completely blank.</p>
+    <p>The target audience includes aviation safety researchers, students, pilots, and general users who cannot be assumed to have high-performance hardware. Leaflet ensures functionality across the widest range of client configurations, consistent with accessible design principles.</p>
+
+    <h3>Deployment Constraints</h3>
+    <p>The project was deployed via GitHub Pages as a static site—HTML, CSS, and JavaScript served without server-side processing or build steps.</p>
+    <p>Leaflet operates natively in this environment via CDN script include. deck.gl typically requires npm integration and a bundler (Webpack, Vite) to produce browser-compatible output. While deck.gl can load from CDN, this sacrifices tree-shaking, inflates bundle size, and complicates dependency management.</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:11px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);color:var(--accent);">
+          <th style="text-align:left;padding:6px;">Aspect</th>
+          <th style="text-align:left;padding:6px;">Leaflet</th>
+          <th style="text-align:left;padding:6px;">deck.gl</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">CDN usage</td>
+          <td style="padding:6px;">Native</td>
+          <td style="padding:6px;">Suboptimal</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">Bundler required</td>
+          <td style="padding:6px;">No</td>
+          <td style="padding:6px;">Typically yes</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;">Setup time</td>
+          <td style="padding:6px;">Minutes</td>
+          <td style="padding:6px;">Hours</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Performance Assessment</h3>
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:11px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);color:var(--accent);">
+          <th style="text-align:left;padding:6px;">Dataset Size</th>
+          <th style="text-align:left;padding:6px;">Leaflet (Canvas/Cluster)</th>
+          <th style="text-align:left;padding:6px;">deck.gl (WebGL)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">10,000 points</td>
+          <td style="padding:6px;">Smooth</td>
+          <td style="padding:6px;">Smooth</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">50,000 points</td>
+          <td style="padding:6px;">Acceptable</td>
+          <td style="padding:6px;">Smooth</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:6px;">170,000 points</td>
+          <td style="padding:6px;">Acceptable with clustering</td>
+          <td style="padding:6px;">Smooth</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;">1,000,000+ points</td>
+          <td style="padding:6px;">Degraded</td>
+          <td style="padding:6px;">Smooth</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>For 170,000 static records with marker clustering, Leaflet provided acceptable performance. The visualization does not require real-time animation, streaming data, or GPU-accelerated aggregation—scenarios where deck.gl's overhead yields significant return.</p>
+
+    <h3>Acknowledged Tradeoffs</h3>
+    <ol>
+      <li><strong>Scalability ceiling.</strong> Datasets exceeding 1M records or requiring real-time animation would necessitate deck.gl.</li>
+      <li><strong>Visual density.</strong> deck.gl produces smoother rendering at extreme point densities (heatmaps, hexbins).</li>
+      <li><strong>Future extensibility.</strong> Temporal animations or 3D terrain would warrant migration to deck.gl.</li>
+    </ol>
+    <p>These tradeoffs were acceptable given project scope and audience.</p>
+
+    <h3>Conclusion</h3>
+    <p>Leaflet was selected over deck.gl based on:</p>
+    <ol>
+      <li><strong>Equivalent basemap rendering</strong> — raster tiles are library-agnostic</li>
+      <li><strong>Client accessibility</strong> — CPU-based rendering with graceful degradation vs. GPU-dependent catastrophic failure</li>
+      <li><strong>Deployment compatibility</strong> — zero-build-step architecture for static hosting</li>
+      <li><strong>Sufficient performance</strong> — clustering handled 170k records adequately</li>
+      <li><strong>Scope alignment</strong> — focus on visualization design, not rendering infrastructure</li>
+    </ol>
+    <p>deck.gl is appropriate for million-point datasets, real-time streaming, or GPU-accelerated aggregation. For this project's requirements, Leaflet provided equivalent functionality with broader accessibility and lower implementation overhead.</p>
+
+    <h3>Addendum References</h3>
+    <ul>
+      <li>Leaflet: <a href="https://leafletjs.com/" style="color:var(--accent);">leafletjs.com</a></li>
+      <li>deck.gl: <a href="https://deck.gl/" style="color:var(--accent);">deck.gl</a></li>
+      <li>Carto Basemaps: <a href="https://carto.com/basemaps/" style="color:var(--accent);">carto.com/basemaps</a></li>
+      <li>Munzner, T. (2014). <em>Visualization Analysis and Design</em>. CRC Press.</li>
     </ul>
 
     <div style="margin-top:24px;padding-top:12px;border-top:1px solid var(--border);font-family:'Share Tech Mono',monospace;font-size:11px;color:#bf5fff;text-align:center;font-weight:700;letter-spacing:1.5px;">
