@@ -58,3 +58,37 @@ GitHub Pages link: https://michaeljevan.github.io/CIS_568_Final_Project/
 ##### *Note: best user interaction experienced on widescreen monitor*
 ---
 
+### Project Interaction Instructions
+#### HELP & INFO
+#### MAP CONTROLS:
+
+- Click any dot or cluster to open the accident popup
+- Click the NTSB case number in the popup to open the full investigation docket on the NTSB
+website. Information generally available 2009 and later.
+
+#### CLUSTER groups nearby accidents -zoom in to separate them. Large datasets may render slowly
+#### HEATMAP shows accident density weighted by injury severity
+#### ALL DOTS plots every individual accident
+### FILTERS:
+
+- Single click any filter button to toggle on/of
+- Double-click to isolate that category -hides all others
+- Double-click again to restore all in that group
+- Year range slider filters by accident date
+- Injury level buttons in the top legend control dot colors on the map
+
+### BASEMAP:
+
+- DARK/STREET: switches between dark map (zoomed out) and street map (zoomed in)
+- SECTIONAL: overlays FAA VFR sectional charts -best at zoom 6–12
+- Note: Sectional view automatically switches to ALL DOTS mode
+- TOPOGRAPHIC: from outer zoom to street level topographic interactive map
+- SPIKE: interactive US spike map with hover over statistics. Click on state to open state/county hover over map
+
+### TIMELINE ... Animates accidents year by year from 1962 to 2025
+- Press ▶ to play, ✕ to close and return to your previous view
+- Stats update in real time as the timeline advances
+- Timeline works at any zoom level.
+
+---
+
