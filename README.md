@@ -58,7 +58,7 @@ GitHub Pages Link: https://michaeljevan.github.io/CIS_568_Final_Project/
 ---
 
 ### Project Interaction Instructions
-#### HELP & INFO
+
 #### MAP CONTROLS:
 
 - Click any dot or cluster to open the accident popup
