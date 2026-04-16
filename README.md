@@ -56,9 +56,6 @@ Project Video Presentation: https://www.youtube.com/watch?v=zmMK5TGLTpI
 - Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider — no build step required
 
 ---
-##### **Post for Academic Review**
-##### *Note: best user interaction experienced on widescreen monitor*
----
 
 ### Project Interaction Instructions
 
@@ -94,3 +91,7 @@ website. Information generally available 2009 and later.
 
 ---
 
+##### **Post for Academic Review**
+##### *Note: best user interaction experienced on widescreen monitor*
+
+---
