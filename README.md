@@ -14,6 +14,9 @@
 GitHub Pages Link: https://michaeljevan.github.io/CIS_568_Final_Project/
 
 ---
+Project Video Presentation: https://www.youtube.com/watch?v=zmMK5TGLTpI
+
+---
 
 ## Features
 
@@ -53,9 +56,6 @@ GitHub Pages Link: https://michaeljevan.github.io/CIS_568_Final_Project/
 - Built on vanilla JavaScript, Leaflet, D3.js, and noUiSlider — no build step required
 
 ---
-##### **Post for Academic Review**
-##### *Note: best user interaction experienced on widescreen monitor*
----
 
 ### Project Interaction Instructions
 
@@ -91,3 +91,7 @@ website. Information generally available 2009 and later.
 
 ---
 
+##### **Post for Academic Review**
+##### *Note: best user interaction experienced on widescreen monitor*
+
+---
