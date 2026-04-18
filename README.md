@@ -18,6 +18,10 @@ Project Video Presentation: https://www.youtube.com/watch?v=zmMK5TGLTpI
 
 ---
 
+<img width="1832" height="1430" alt="project photo" src="https://github.com/user-attachments/assets/7813e2ea-d5ac-4656-9633-548db94e6d37" />
+
+---
+
 ## Features
 
 ### Data
